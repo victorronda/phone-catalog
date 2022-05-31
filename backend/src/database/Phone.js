@@ -1,4 +1,5 @@
 const DB = require("./db.json");
+const { PORT } = require('../index')
 
 const getAllPhones = () => {
   try {

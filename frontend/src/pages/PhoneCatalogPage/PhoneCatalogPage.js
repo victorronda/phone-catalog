@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+import CardList from "../../components/UI/Card/CardList/CardList";
 import PhoneContext from "../../context/phones-context";
 
 const PhoneCatalogPage = () => {
-  const { phones, isLoading } = useContext(PhoneContext);
+  const { isLoading } = useContext(PhoneContext);
   return (
     <div>
       <h1>PhoneCatalogPage</h1>
       {isLoading ? (
-        <div>Loading...</div>
+        <div>
+          <ClipLoader loading={isLoading} size={150} />
+        </div>
       ) : (
-        phones.map((phone) => <div>{phone.name}</div>)
+        <CardList />
       )}
     </div>
   );
