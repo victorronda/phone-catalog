@@ -6,15 +6,21 @@ import reportWebVitals from "./reportWebVitals";
 import CatalogPage from "./pages/PhoneCatalogPage/PhoneCatalogPage";
 import ProductDetailPage from "./pages/PhoneDetailPage/PhoneDetailPage";
 import { PhoneContextProvider } from "./context/phones-context";
+import NotFound from "./pages/NotFoundPage/NotFoundPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <PhoneContextProvider>
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/*">
           <Route index element={<CatalogPage />} />
-          <Route path="phones/:phonesId" element={<ProductDetailPage />} />
+          <Route path="phones">
+            <Route path=":phoneId">
+              <Route path=":slug" element={<ProductDetailPage />} />
+            </Route>
+          </Route>
         </Route>
       </Routes>
     </PhoneContextProvider>

@@ -1,0 +1,1 @@
+export const CONNECTION_ERROR = "Something went wrong. Try again or wait a few minutes"
