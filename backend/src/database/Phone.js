@@ -12,7 +12,7 @@ const getAllPhones = () => {
 
 const getOnePhoneById = (phoneId) => {
   try {
-    const phone = DB.phones.find((phone) => phone.id === +phoneId);
+    const phone = DB.phones.find((phone) => String(phone.id) === String(phoneId));
     if (!phone) {
       throw {
         status: 400,
@@ -28,7 +28,7 @@ const getOnePhoneById = (phoneId) => {
 const createNewPhone = (newPhone) => {
   try {
     const isAlreadyAdded =
-      DB.phone.findIndex((phone) => phone.name === newPhone.name) > -1;
+      DB.phones.findIndex((phone) => phone.name === newPhone.name) > -1;
     if (isAlreadyAdded) {
       throw {
         status: 400,
@@ -37,7 +37,7 @@ const createNewPhone = (newPhone) => {
     }
 
     DB.phones.push(newPhone);
-    saveToDatabase(newPhone);
+    saveToDatabase(DB);
     return newPhone;
   } catch (error) {
     throw { status: error?.status || 500, message: error?.message || error };

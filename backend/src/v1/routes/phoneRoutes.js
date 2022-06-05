@@ -7,6 +7,6 @@ router.get("/", phoneController.getAllPhones);
 router.get("/:phoneId", phoneController.getOnePhoneById);
 
 router.post("/", phoneController.createNewPhone);
-router.delete("/", phoneController.deleteOnePhone);
+router.delete("/:phoneId", phoneController.deleteOnePhone);
 
 module.exports = router;

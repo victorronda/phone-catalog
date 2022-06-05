@@ -1,7 +1,7 @@
 const { isValidNumber } = require("./utils-numbers");
 const { isValidString } = require("./utils-strings");
 
-const isValidPhoneForm = (inputs) => {
+const isValidPhoneForm = (inputs, res) => {
   const {
     name,
     manufacturer,
@@ -46,7 +46,7 @@ const isValidPhoneForm = (inputs) => {
   ];
   const numberInputs = [price, ram];
 
-  if (!stringInputs.some((input) => isValidString(input))) {
+  if (!stringInputs.every((input) => isValidString(input))) {
     res.status(400).send({
       status: "FAILED",
       data: {
@@ -57,12 +57,11 @@ const isValidPhoneForm = (inputs) => {
     return false;
   }
 
-  if (!numberInputs.some((input) => isValidNumber(input))) {
+  if (!numberInputs.every((input) => isValidNumber(input))) {
     res.status(400).send({
       status: "FAILED",
       data: {
-        error: `One of the following keys is not a valid string: 
-          'name', 'manufacturer', 'description', 'color', 'imageFileName'', 'screen', 'processor'`,
+        error: `One of the following keys is not a valid number: 'price', 'ram'`,
       },
     });
     return false;

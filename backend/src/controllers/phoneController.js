@@ -30,24 +30,24 @@ const getOnePhoneById = (req, res) => {
 };
 
 const createNewPhone = (req, res) => {
-  const {
-    body: {
-      name,
-      manufacturer,
-      description,
-      color,
-      price,
-      imageFileName,
-      screen,
-      processor,
-      ram,
-    },
-  } = req;
+  const { body } = req;
 
-  const validForm = isValidPhoneForm(body);
+  const validForm = isValidPhoneForm(body, res);
   if (!validForm) {
     return;
   }
+
+  const {
+    name,
+    manufacturer,
+    description,
+    color,
+    price,
+    imageFileName,
+    screen,
+    processor,
+    ram,
+  } = body;
 
   const newPhone = {
     name,
