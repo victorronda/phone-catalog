@@ -10,8 +10,7 @@ import "./PhoneDetailPage.css";
 
 const override = css`
   display: block;
-  margin: auto;
-  height: 100%;
+  margin: 35vh auto;
   border-color: red;
 `;
 

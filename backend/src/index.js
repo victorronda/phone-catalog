@@ -12,10 +12,9 @@ app.use(express.static(__dirname + imagesPath));
 app.use(
   cors({
     credentials: false,
-    origin: [process.env.PUBLIC_DOMAIN],
+    origin: [process.env.PUBLIC_DOMAIN || 'http://localhost:3000'],
   })
 );
-
 app.use(bodyParser.json());
 
 app.use("/api/v1/phones", v1PhoneRoutes);

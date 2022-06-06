@@ -1,7 +1,8 @@
 import axios from "axios";
 import { CONNECTION_ERROR } from "../constants";
 
-const phonesApiUri = `${process.env.REACT_APP_BACKEND_URI}/api/v1/phones`;
+const serverRootPath = process.env.REACT_APP_BACKEND_URI || 'http://localhost:3030';
+const phonesApiUri = `${serverRootPath}/api/v1/phones`;
 
 export const getAllPhones = async () => {
   try {

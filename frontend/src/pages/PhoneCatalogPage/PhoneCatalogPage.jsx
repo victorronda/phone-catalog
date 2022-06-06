@@ -7,7 +7,7 @@ import "./PhoneCatalogPage.css";
 
 const override = css`
   display: block;
-  margin: 0 auto;
+  margin: 35vh auto;
   border-color: red;
 `;
 
@@ -17,8 +17,8 @@ const PhoneCatalogPage = () => {
     <div className="phone-catalog-container">
       <h1 className="phone-catalog-title">Phone Catalog</h1>
       {isLoading ? (
-        <div className="spinner">
-          <ClipLoader loading={isLoading} size={250} css={override} />
+        <div>
+          <ClipLoader loading={isLoading} size={150} css={override} />
         </div>
       ) : (
         <CardList />
