@@ -81,7 +81,12 @@ external resources, please try to include the corresponding instructions if nece
 
 ## Setup
 
-There are 2 options, automatically or manually.
+First step:
+````
+npm install
+````
+
+After that, there are 2 options, automatically or manually.
 
 ### Automatic run
 
